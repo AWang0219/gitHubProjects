@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragment :: head(~{::title})">
+    <title>登录</title>
+</head>
+
+<body class="login-bg">
+
+<br>
+<br>
+<br>
+<div class="m-container-small m-padded-tb-massive disabled" style="max-width: 30em !important;">
+    <div class="ur container">
+        <div class="ui middle aligned center aligned grid">
+            <div class="column">
+                <h2 class="ui teal image header">
+                    <div class="content">
+                        Login
+                    </div>
+                </h2>
+                <form class="ui large form" method="post" action="#" th:action="@{/user/login}">
+                    <div class="ui  segment">
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <i class="user icon"></i>
+                                <input type="text" name="username" id="username" placeholder="用户名">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <i class="lock icon"></i>
+                                <input type="password" name="password" id="password" placeholder="密码">
+                            </div>
+                        </div>
+                            <label style="color:red" th:text="${msg}" id="label"></label>
+                        <button class="ui fluid large teal submit button" onclick="check()">登 录</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    function check() {
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+        if (username == "" || password == "") {
+            alert("用户名或密码不能为空");
+        }
+    }
+</script>
+
+</body>
+</html>
